@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos - EcoMuebles</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/products.css" />
+  <link rel="stylesheet" href="../css/mediaQueris.css" />
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
+  <script defer type="module" src="../js/products.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="../index.html" class="nav__logo">
+        <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="nav__logo-icon" />
+        <span class="nav__logo-text">EcoMuebles</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav__toggle" />
+      <label for="nav-toggle" class="nav__toggle-label">
+        <span></span>
+      </label>
+      <ul class="nav__menu">
+        <li class="nav__item">
+          <a href="../index.html" class="nav__link">
+            <img src="../img/logo-home.svg" alt="inicio" class="cart-icon" /></a>
+        </li>
+        <li class="nav__item">
+          <a href="./products.html" class="nav__link nav__link--active">Productos</a>
+        </li>
+        <li class="nav__item">
+          <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
+        </li>
+        <li class="nav__item">
+          <a href="./shooping-cart.html" class="nav__link">
+            <img src="../img/logo-carrito-nav2.png" alt="Carrito" class="cart-icon" /></a>
+        </li>
+        <li class="nav__item">
+          <a href="./blog.html" class="nav__link">Blog</a>
+        </li>
+        <li class="nav__item">
+          <a href="./contact.html" class="nav__link">Contacto</a>
+        </li>
+        <li class="nav__item">
+          <a href="./profile.html" class="nav__link">
+            <img src="../img/logo-profile.png" alt="profile" class="profile-icon" /></a>
+        </li>
+        <li class="nav__item">
+          <a href="./login.html" class="nav__link">
+            <img src="../img/logo-cerrar.png" alt="cerrar sesion" class="log-out-icon" /></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1 class="page-header__title">Nuestros Productos</h1>
+      <p class="page-header__text">
+        Descubre nuestra colección de muebles sostenibles
+      </p>
+    </section>
+
+    <section class="products">
+      <div class="filters">
+        <details class="filters__details">
+          <summary class="filters__summary">Ordenar por</summary>
+          <div class="filters__content">
+            <select id="sort" class="filters__select">
+              <option value="">Por defecto</option>
+              <option value="price_asc">Precio: menor a mayor</option>
+              <option value="price_desc">Precio: mayor a menor</option>
+              <option value="name_asc">Nombre: A-Z</option>
+              <option value="name_desc">Nombre: Z-A</option>
+              <option value="newest">Más nuevos primero</option>
+              <option value="oldest">Más antiguos primero</option>
+            </select>
+          </div>
+        </details>
+
+        <details class="filters__details" >
+          <summary class="filters__summary">Categorías</summary>
+          <div class="filters__content">
+            <label class="checkbox" for="sofa">
+              <input type="checkbox" id="sofa" name="category[]" value="sofa" />
+              Sofá
+            </label>
+            <label class="checkbox" for="chair">
+              <input type="checkbox" id="chair" name="category[]" value="chair" />
+              Silla
+            </label>
+            <label class="checkbox" for="stool">
+              <input type="checkbox" id="stool" name="category[]" value="stool" />
+              Taburete
+            </label>
+            <label class="checkbox" for="table">
+              <input type="checkbox" id="table" name="category[]" value="table" />
+              Mesa
+            </label>
+            <label class="checkbox" for="desk">
+              <input type="checkbox" id="desk" name="category[]" value="desk" />
+              Escritorio
+            </label>
+            <label class="checkbox" for="kitchen">
+              <input type="checkbox" id="kitchen" name="category[]" value="kitchen" />
+              Cocina
+            </label>
+            <label class="checkbox" for="vanitory">
+              <input type="checkbox" id="vanitory" name="category[]" value="vanitory" />
+              Tocador
+            </label>
+            <label class="checkbox" for="matress">
+              <input type="checkbox" id="matress" name="category[]" value="matress" />
+              Colchón
+            </label>
+            <label class="checkbox" for="mirror">
+              <input type="checkbox" id="mirror" name="category[]" value="mirror" />
+              Espejo
+            </label>
+            <label class="checkbox" for="wardrove">
+              <input type="checkbox" id="wardrove" name="category[]" value="wardrove" />
+              Armario
+            </label>
+            <label class="checkbox" for="lamp">
+              <input type="checkbox" id="lamp" name="category[]" value="lamp" />
+              Lámpara
+            </label>
+            <label class="checkbox" for="tv-table">
+              <input type="checkbox" id="tv-table" name="category[]" value="tv table" />
+              Mesa para TV
+            </label>
+            <label class="checkbox" for="garden">
+              <input type="checkbox" id="garden" name="category[]" value="garden" />
+              Jardín
+            </label>
+          </div>
+        </details>
+
+        <details class="filters__details">
+          <summary class="filters__summary">Tipo de Madera</summary>
+          <div class="filters__content">
+            <label class="checkbox" for="walnut">
+              <input type="checkbox" id="walnut" name="wood_type[]" value="walnut" />
+              Nogal
+            </label>
+            <label class="checkbox" for="maple">
+              <input type="checkbox" id="maple" name="wood_type[]" value="maple" />
+              Arce
+            </label>
+            <label class="checkbox" for="oak">
+              <input type="checkbox" id="oak" name="wood_type[]" value="oak" />
+              Roble
+            </label>
+            <label class="checkbox" for="pine">
+              <input type="checkbox" id="pine" name="wood_type[]" value="pine" />
+              Pino
+            </label>
+            <label class="checkbox" for="eucalyptus">
+              <input type="checkbox" id="eucalyptus" name="wood_type[]" value="eucalyptus" />
+              Eucalipto
+            </label>
+            <label class="checkbox" for="bamboo">
+              <input type="checkbox" id="bamboo" name="wood_type[]" value="bamboo" />
+              Bambú
+            </label>
+            <label class="checkbox" for="teak">
+              <input type="checkbox" id="teak" name="wood_type[]" value="teak" />
+              Teca
+            </label>
+            <label class="checkbox" for="cedar">
+              <input type="checkbox" id="cedar" name="wood_type[]" value="cedar" />
+              Cedro
+            </label>
+          </div>
+        </details>
+
+        <details class="filters__details">
+          <summary class="filters__summary">Acabado</summary>
+          <div class="filters__content">
+            <label class="checkbox" for="dark">
+              <input type="checkbox" id="dark" name="finish[]" value="dark" />
+              Oscuro
+            </label>
+            <label class="checkbox" for="medium">
+              <input type="checkbox" id="medium" name="finish[]" value="medium" />
+              Medio
+            </label>
+            <label class="checkbox" for="light">
+              <input type="checkbox" id="light" name="finish[]" value="light" />
+              Claro
+            </label>
+            <label class="checkbox" for="natural">
+              <input type="checkbox" id="natural" name="finish[]" value="natural" />
+              Natural
+            </label>
+          </div>
+        </details>
+
+        <details class="filters__details">
+          <summary class="filters__summary">Rango de Precio</summary>
+          <div class="filters__content">
+            <label for="price-range">Precio máx: <span id="price-value">3000</span> €</label>
+            <input 
+              type="range" 
+              id="price-range" 
+              name="price-range" 
+              min="0" 
+              max="3000" 
+              step="50" 
+              value="2000" 
+              oninput="document.getElementById('price-value').textContent = this.value"
+            />
+          </div>
+        </details>
+
+        <div class="search">
+          <button class="button button--primary btn-filter">Aplicar</button>
+          <button id="reset-filters" class="button button--secondary btn-filter">Limpiar</button>
+        </div>
+      </div>
+      
+      <div class="products__grid">
+        <!-- Los productos se cargarán dinámicamente desde JS -->
+        <div class="loading">Cargando productos...</div>
+      </div>
+      
+      <!-- Contenedor para paginación -->
+      <div class="pagination-container"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="footer__logo" />
+        <p class="footer__tagline">
+          Muebles sostenibles para un mañana mejor.
+        </p>
+      </div>
+
+      <div class="footer__links">
+        <h3 class="footer__title">Enlaces Rápidos</h3>
+        <ul class="footer__menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./products.html">Productos</a></li>
+          <li><a href="./contact.html">Contacto</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__social">
+        <h3 class="footer__title">Síguenos en RR.SS.</h3>
+        <div class="footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <img src="../img/logo-facebook.svg" alt="logo facebook" />
+          </a>
+          <a href="#" aria-label="X">
+            <img src="../img/logo-x.svg" alt="logo x" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="../img/logo-instagram.svg" alt="logo instagram" />
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <img src="../img/logo-pinterest.svg" alt="logo pinterest" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Antonio Gómez. Desde Andalucía, con ❤.</p>
+    </div>
+  </footer>
+</body>
+</html>

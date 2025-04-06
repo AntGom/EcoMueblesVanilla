@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del Producto - EcoMuebles</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/detail.css" />
+    <link rel="stylesheet" href="../css/mediaQueris.css" />
+    <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
+    <script defer type="module" src="../js/detail.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../index.html" class="nav__logo">
+          <img
+            src="../img/logo-hoja.svg"
+            alt="EcoMuebles Logo"
+            class="nav__logo-icon"
+          />
+          <span class="nav__logo-text">EcoMuebles</span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav__toggle" />
+        <label for="nav-toggle" class="nav__toggle-label">
+          <span></span>
+        </label>
+        <ul class="nav__menu">
+          <li class="nav__item">
+            <a href="../index.html" class="nav__link">
+              <img src="../img/logo-home.svg" alt="inicio" class="cart-icon" /></a>
+          </li>
+          <li class="nav__item">
+            <a href="./products.html" class="nav__link">Productos</a>
+          </li>
+          <li class="nav__item">
+            <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
+          </li>
+          <li class="nav__item">
+            <a href="./shooping-cart.html" class="nav__link">
+              <img
+                src="../img/logo-carrito-nav2.png"
+                alt="Carrito"
+                class="cart-icon"
+            /></a>
+          </li>
+          <li class="nav__item">
+            <a href="./blog.html" class="nav__link">Blog</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="./contact.html" class="nav__link">Contacto</a>
+          </li>
+          <li class="nav__item">
+            <a href="./profile.html" class="nav__link">
+              <img
+                src="../img/logo-profile.png"
+                alt="profile"
+                class="profile-icon"
+            /></a>
+          </li>
+          <li class="nav__item">
+            <a href="./login.html" class="nav__link">
+              <img
+                src="../img/logo-cerrar.png"
+                alt="log-out"
+                class="log-out-icon"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="product-detail">
+      <h1 class="product-detail__title">Cargando producto...</h1>
+      <section class="product-detail__images">
+        <div class="product-detail__main-image">
+          <img
+            alt="Imagen del producto"
+            class="product-detail__image product-detail__image--main"
+          />
+        </div>
+      </section>
+
+      <section class="product-detail__description">
+        <p class="product-detail__text">
+          Cargando descripción...
+        </p>
+      </section>
+
+      <section class="product-detail__features">
+        <div class="product-detail-container">
+          <h2 class="product-detail__features-title">Características</h2>
+          <ul class="product-detail__features-list">
+            <li class="product-detail__feature-item">Cargando características...</li>
+          </ul>
+        </div>
+
+        <div class="product-detail-container">
+          <h2 class="product-detail__price-title">Precio</h2>
+          <span class="product-detail__price">0€</span>
+          <div class="product-detail__quantity">
+            <label for="quantity" class="product-detail__quantity-label"
+              >Cantidad:</label
+            >
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              value="1"
+              class="product-detail__quantity-input"
+            />
+          </div>
+        </div>
+      </section>
+      
+      <div class="button-cart">
+        <button class="button button--primary product-detail__add-to-cart">
+          <img src="../img/logo-carrito-plus.png" alt="añadir carrito" />Añadir
+        </button>
+        <button class="button button--secondary product-detail__wishlist-button">
+          <img src="../img/logo-gray-heart.svg" alt="lista de deseos" class="wishlist-icon gray" />
+          <img src="../img/logo-red-heart.svg" alt="lista de deseos" class="wishlist-icon red hidden" />
+          <span>Lista de deseos</span>
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <img
+            src="../img/logo-hoja.svg"
+            alt="EcoMuebles Logo"
+            class="footer__logo"
+          />
+          <p class="footer__tagline">
+            Muebles sostenibles para un mañana mejor.
+          </p>
+        </div>
+
+        <div class="footer__links">
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./products.html">Productos</a></li>
+            <li><a href="./contact.html">Contacto</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__social">
+          <h3 class="footer__title">Síguenos en RR.SS.</h3>
+          <div class="footer__social-icons">
+            <a href="#" aria-label="Facebook">
+              <img src="../img/logo-facebook.svg" alt="logo facebook" />
+            </a>
+            <a href="#" aria-label="X">
+              <img src="../img/logo-x.svg" alt="logo x" />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <img src="../img/logo-instagram.svg" alt="logo instagram" />
+            </a>
+            <a href="#" aria-label="Pinterest">
+              <img src="../img/logo-pinterest.svg" alt="logo pinterest" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Antonio Gómez. Desde Andalucía, con ❤.</p>
+      </div>
+    </footer>
+  </body>
+</html>

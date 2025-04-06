@@ -1,0 +1,228 @@
+/*!-> Perfil Header */
+.profile-cover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/salon.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 1rem 0rem 1rem;
+  text-align: center;
+  color: white;
+  height: 7rem;
+}
+
+.profile-title {
+  animation: fadeInUp 1s ease-out;
+  margin-top: -1.8rem;
+}
+
+.profile-info {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: translateY(-50px);
+}
+
+.profile-avatar {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+}
+
+.profile-details {
+  width: 80%;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.profile-details h1 {
+  font-size: 1.5rem;
+}
+
+/*!-> Contenido del Perfil */
+.profile-content {
+  padding: 0 1rem 2rem;
+}
+
+.shopping-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.shopping-info a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.shopping-info a:hover,
+.edit-pencil img:hover {
+  transform: translateY(-5px);
+  color: var(--color-primary-light);
+}
+
+.shopping-info a:active,
+.edit-pencil img:active {
+  transform: initial;
+}
+
+.edit-pencil img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/*!-> Formulario del Perfil */
+.profile-sections {
+  background: var(--color-background-alt);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 1rem;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.edit-pencil {
+  width: 2rem;
+  height: 2rem;
+}
+
+.profile-form {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-form input {
+  padding: 0.75rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.375rem;
+  background-color: var(--color-background);
+  width: 100%;
+}
+
+.profile-form input:disabled {
+  cursor: not-allowed;
+}
+
+/*!-> Tarjetas de Pedidos */
+#order {
+  scroll-margin-top: 5rem;
+}
+
+.orders-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order-card {
+  background-color: var(--color-background-alt-dark);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.order-header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
+  border-right: 2px solid var(--color-background);
+}
+
+.order {
+  width: 6rem;
+  align-self: center;
+}
+
+.order-status.success {
+  color: var(--color-primary);;
+}
+
+.order-status.pending {
+  color: rgba(253, 145, 3, 0.97);
+}
+
+.order-status.canceled {
+  color: #852f2f;
+}
+
+.order-num,
+.order-prize {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.order-number,
+.date-header,
+.prize-header {
+  font-weight: 500;
+}
+
+.date {
+  font-size: 0.8rem;
+}
+
+.prize-number {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.order-status {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  align-self: start;
+}
+
+.order-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
+
+.order-content h3{
+  font-size: 0.8rem;
+}
+
+.order-content img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}

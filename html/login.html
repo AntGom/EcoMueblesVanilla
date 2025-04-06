@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoMuebles - Iniciar Sesión</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/mediaQueris.css" />
+    <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
+    <script type="module" defer src="../js/auth.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../index.html" class="nav__logo">
+          <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="nav__logo-icon" />
+          <span class="nav__logo-text">EcoMuebles</span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav__toggle" />
+        <label for="nav-toggle" class="nav__toggle-label">
+          <span></span>
+        </label>
+        <ul class="nav__menu">
+          <li class="nav__item">
+            <a href="../index.html" class="nav__link">
+              <img src="../img/logo-home.svg" alt="Carrito" class="cart-icon" /></a>
+          </li>
+          <li class="nav__item">
+            <a href="./products.html" class="nav__link">Productos</a>
+          </li>
+          <li class="nav__item">
+            <a href="./contact.html" class="nav__link">Contacto</a>
+          </li>
+          <li class="nav__item">
+            <a href="./login.html" class="nav__link">
+              <img src="../img/log-in.png" alt="log-in" class="log-in-icon log-in-icon__active"/></a>
+          </li>
+          <li class="nav__item">
+            <a href="./register.html" class="nav__link">
+              <img src="../img/logo-registro.png" alt="register" class="register-icon "/></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <div class="auth-container">
+        <h1 class="auth-title">Iniciar Sesión</h1>
+        <form class="auth-form">
+          <div class="login-form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required class="auth-input" placeholder="tu@email.com">
+          </div>
+          <div class="login-form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" required class="auth-input" placeholder="••••••••">
+          </div>
+          <button type="submit" class="button button--primary">Iniciar Sesión</button>
+        </form>
+        <p class="auth-redirect">
+          ¿No tienes cuenta? <a href="register.html">Regístrate aquí</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="footer__logo" />
+          <p class="footer__tagline">
+            Muebles sostenibles para un mañana mejor.
+          </p>
+        </div>
+  
+        <div class="footer__links">
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./products.html">Productos</a></li>
+            <li><a href="./contact.html">Contacto</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer__social">
+          <h3 class="footer__title">Síguenos en RR.SS.</h3>
+          <div class="footer__social-icons">
+            <a href="#" aria-label="Facebook">
+              <img src="../img/logo-facebook.svg" alt="logo facebook" />
+            </a>
+            <a href="#" aria-label="X">
+              <img src="../img/logo-x.svg" alt="logo x" />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <img src="../img/logo-instagram.svg" alt="logo instagram" />
+            </a>
+            <a href="#" aria-label="Pinterest">
+              <img src="../img/logo-pinterest.svg" alt="logo pinterest" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Antonio Gómez. Desde Andalucía, con ❤.</p>
+      </div>
+    </footer>
+  </body>
+</html>
