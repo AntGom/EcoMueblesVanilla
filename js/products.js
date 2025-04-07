@@ -1,4 +1,4 @@
-import { getProducts } from "./app.js";
+import { getProducts, getFilteredProducts } from "./app.js";
 import { showNotification } from "./notifications.js";
 
 // Variables para paginación
@@ -23,7 +23,7 @@ const renderProducts = (products, container) => {
           data-category="${product.category || ""}" 
           data-wood-type="${product.wood_type || ""}"
           data-finish="${product.finish || ""}"
-          data-price="${product.price}"
+          data-price="${product.discount_price}" 
           data-created-at="${product.created_at || ""}">
           <img src="${product.image_path}" alt="${
         product.name
@@ -48,7 +48,7 @@ const renderProducts = (products, container) => {
 };
 
 const renderPagination = (container) => {
-  // No paginación si solo 1pág
+  // No paginación si solo 1 página
   if (totalPages <= 1) {
     container.innerHTML = "";
     return;
@@ -126,8 +126,10 @@ const changePage = (newPage) => {
   // Actualizar controles de paginación
   renderPagination(document.querySelector(".pagination-container"));
 
-  // Scroll arriba de la pág
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Scroll hacia la sección de productos
+  document
+    .querySelector(".products__grid")
+    .scrollIntoView({ behavior: "smooth" });
 };
 
 const initializeFilters = (products, container) => {
@@ -136,7 +138,7 @@ const initializeFilters = (products, container) => {
 
   if (!filterButton || !resetButton) return;
 
-  const applyFilters = () => {
+  const applyFilters = async () => {
     try {
       const selectedCategories = getSelectedCheckboxValues("category[]");
       const selectedWoodTypes = getSelectedCheckboxValues("wood_type[]");
@@ -146,31 +148,21 @@ const initializeFilters = (products, container) => {
       );
       const sortOption = document.getElementById("sort")?.value || "";
 
-      filteredProducts = products.filter((product) => {
-        const categoryMatch =
-          selectedCategories.length === 0 ||
-          (product.category && selectedCategories.includes(product.category));
+      const filters = {
+        category:selectedCategories.length > 0 ? selectedCategories.join(",") : null,
+        wood_type: selectedWoodTypes.length > 0 ? selectedWoodTypes.join(",") : null,
+        finish: selectedFinishes.length > 0 ? selectedFinishes.join(",") : null,
+        price: maxPrice,
+        sort: sortOption,
+      };
 
-        const woodTypeMatch =
-          selectedWoodTypes.length === 0 ||
-          (product.wood_type && selectedWoodTypes.includes(product.wood_type));
+      filteredProducts = await getFilteredProducts(filters);
 
-        const finishMatch =
-          selectedFinishes.length === 0 ||
-          (product.finish && selectedFinishes.includes(product.finish));
-
-        const priceMatch = product.price <= maxPrice;
-
-        return categoryMatch && woodTypeMatch && finishMatch && priceMatch;
-      });
-
-      filteredProducts = sortProducts(filteredProducts, sortOption);
-
-      // Restablecer primera página si se filtran los resultados
+      // Restablecer pág1 al filtrar resultados
       currentPage = 1;
       totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-      // Mostrar solo productos de la página actual
+      // Mostrar solo productos de pág actual
       const startIndex = 0;
       const endIndex = Math.min(itemsPerPage, filteredProducts.length);
       const productsToShow = filteredProducts.slice(startIndex, endIndex);
@@ -280,10 +272,10 @@ const initProductsPage = async () => {
     allProducts = Array.isArray(response) ? response : [];
     filteredProducts = [...allProducts];
 
-    // Calcular págs totales
+    // Calcular páginas totales
     totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-    // Obtener productos para la primera pág
+    // Obtener productos para la primera página
     const productsToShow = filteredProducts.slice(0, itemsPerPage);
 
     // Renderizar productos y controles de paginación

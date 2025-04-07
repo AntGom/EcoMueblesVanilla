@@ -155,7 +155,7 @@ details[open] summary::after {
   padding: 0.5rem;
 }
 
-/*!-> Paginación */
+/* Paginación */
 .pagination-container {
   margin-top: 1rem;
   width: 90vw;
