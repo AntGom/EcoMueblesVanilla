@@ -101,8 +101,7 @@ const clearCart = () => {
 const updateCartCounter = () => {
   const cart = getCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
-  // Buscar el elemento del contador
+  console.log("Total items en el carrito:", totalItems);
   const cartCounter = document.querySelector(".cart-counter");
 
   if (cartCounter) {
@@ -304,10 +303,15 @@ addToCartButtons.forEach((button) => {
   });
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  updateCartCounter();
+});
+
 export {
   addToCart,
   removeFromCart,
   updateCartItemQuantity,
   getCart,
   clearCart,
+  updateCartCounter,
 };

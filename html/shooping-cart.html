@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../css/shooping-cart.css" />
     <link rel="stylesheet" href="../css/mediaQueris.css" />
     <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
-    <script defer type="module" src="../js/cart.js"></script>
-
+    <script  type="module" defer src="../js/cart.js"></script>
   </head>
 
   <body>
@@ -39,12 +38,14 @@
             <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
           </li>
           <li class="nav__item">
-            <a href="./shooping-cart.html" class="nav__link">
+            <a href="./html/shooping-cart.html" class="nav__link cart-container">
               <img
-                src="../img/logo-carrito-nav2.png"
+                src="../img/logo-carrito-ok.png"
                 alt="Carrito"
                 class="cart-icon cart-icon__active"
-            /></a>
+              />
+              <span class="cart-counter" id="cart-counter"></span>
+            </a>
           </li>
           <li class="nav__item">
             <a href="./blog.html" class="nav__link">Blog</a>

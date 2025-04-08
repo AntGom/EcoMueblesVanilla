@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/mediaQueris.css" />
     <link rel="icon" type="image/svg+xml" href="./img/logo-hoja.svg" />
+    <script defer type="module" src="./js/app.js"></script>
+    <script  defer type="module" src="./js/auth.js"></script>
   </head>
 
   <body>
@@ -37,13 +39,16 @@
             <a href="./html/wishList.html" class="nav__link">Lista de Deseos</a>
           </li>
           <li class="nav__item">
-            <a href="./html/shooping-cart.html" class="nav__link">
+            <a href="./html/shooping-cart.html" class="nav__link cart-container">
               <img
-                src="./img/logo-carrito-nav2.png"
+                src="./img/logo-carrito-ok.png"
                 alt="Carrito"
                 class="cart-icon"
-            /></a>
+              />
+              <span class="cart-counter" id="cart-counter"></span>
+            </a>
           </li>
+          
           <li class="nav__item">
             <a href="./html/blog.html" class="nav__link">Blog</a>
           </li>
@@ -65,7 +70,8 @@
                 src="./img/logo-cerrar.png"
                 alt="log-out"
                 class="log-out-icon"
-            /></a>
+            />
+          </a>
           </li>
         </ul>
       </nav>
@@ -198,7 +204,6 @@
       </div>
     </footer>
 
-    <script type="module" src="./js/app.js"></script>
-    <script type="module" src="./js/auth.js"></script>
+
   </body>
 </html>

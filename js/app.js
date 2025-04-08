@@ -1,10 +1,13 @@
 import { showNotification } from "./notifications.js";
+import { updateCartCounter } from "./cart.js";
 
 const API_URL = "https://furniture-api.fly.dev/v1/";
 
 const getProducts = async (page = 1, limit = 50) => {
   try {
-    const response = await fetch(`${API_URL}products?limit=${limit}&sort=name_asc`);
+    const response = await fetch(
+      `${API_URL}products?limit=${limit}&sort=name_asc`
+    );
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
     }
@@ -52,6 +55,13 @@ const getFilteredProducts = async (filters) => {
     return [];
   }
 };
+
+const cartCounter = document.getElementById("cart-counter");
+if (cartCounter) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  cartCounter.textContent = totalItems;
+}
 
 export {
   API_URL,

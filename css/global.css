@@ -104,6 +104,25 @@ h6 {
   opacity: 0.5;
 }
 
+.cart-container {
+  position: relative;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  background-color: #ff5a5f;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+}
+
 .nav__toggle {
   display: none;
 }

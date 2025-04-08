@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/mediaQueris.css" />
     <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
     <script  type="module" defer src="../js/profile.js"></script>
+
   </head>
 
   <body>
@@ -42,12 +43,14 @@
             <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
           </li>
           <li class="nav__item">
-            <a href="./shooping-cart.html" class="nav__link">
+            <a href="../html/shooping-cart.html" class="nav__link cart-container">
               <img
-                src="../img/logo-carrito-nav2.png"
+                src="../img/logo-carrito-ok.png"
                 alt="Carrito"
                 class="cart-icon"
-            /></a>
+              />
+              <span class="cart-counter" id="cart-counter"></span>
+            </a>
           </li>
           <li class="nav__item">
             <a href="./blog.html" class="nav__link">Blog</a>
@@ -149,7 +152,7 @@
           <article id="order" class="profile-section">
             <h2>Mis pedidos</h2>
             <div class="orders-list">
-              <!-- El historial de pedidos se cargará dinámicamente desde JavaScript -->
+              <!-- El historial de pedidos carga dinámicamente desde JS -->
             </div>
           </article>
         </div>
