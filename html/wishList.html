@@ -10,6 +10,8 @@
   <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
   <script defer type="module" src="../js/wishlist.js"></script>
   <script defer type="module" src="../js/app.js"></script>
+  <script defer type="module" src="../js/auth.js"></script>
+
 </head>
 
 <body>
@@ -24,40 +26,41 @@
         <span></span>
       </label>
       <ul class="nav__menu">
-        <li class="nav__item">
+        <li class="nav__item nav-home">
           <a href="../index.html" class="nav__link">
-            <img src="../img/logo-home.svg" alt="Carrito" class="cart-icon" /></a>
+            <img src="../img/logo-home.svg" alt="inicio" class="cart-icon" />
+          </a>
         </li>
-        <li class="nav__item">
-          <a href="./products.html" class="nav__link">Productos</a>
+        <li class="nav__item nav-products">
+          <a href="./products.html" class="nav__link nav__link--active">Productos</a>
         </li>
-        <li class="nav__item">
-          <a href="./wishList.html" class="nav__link nav__link--active">Lista de Deseos</a>
+        <li class="nav__item nav-wishlist" style="display: none;">
+          <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item nav-cart" style="display: none;">
           <a href="../html/shooping-cart.html" class="nav__link cart-container">
-            <img
-              src="../img/logo-carrito-ok.png"
-              alt="Carrito"
-              class="cart-icon"
-            />
+            <img src="../img/logo-carrito-ok.png" alt="Carrito" class="cart-icon" />
             <span class="cart-counter" id="cart-counter"></span>
           </a>
         </li>
-        <li class="nav__item">
-          <a href="./blog.html" class="nav__link ">Blog</a>
+        <li class="nav__item nav-blog">
+          <a href="./blog.html" class="nav__link">Blog</a>
         </li>
-
-        <li class="nav__item">
+        <li class="nav__item nav-contact">
           <a href="./contact.html" class="nav__link">Contacto</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item nav-profile" style="display: none;">
           <a href="./profile.html" class="nav__link">
-            <img src="../img/logo-profile.png" alt="profile" class="profile-icon"/></a>
+            <img src="../img/logo-profile.png" alt="profile" class="profile-icon" />
+          </a>
         </li>
-        <li class="nav__item">
-          <a href="./login.html" class="nav__link">
-            <img src="../img/logo-cerrar.png" alt="log-out" class="log-out-icon"/></a>
+        <li class="nav__item nav-logout" style="display: none;">
+          <a href="#" class="nav__link">
+            <img src="../img/logo-cerrar.png" alt="log-out" class="log-out-icon" />
+          </a>
+        </li>
+        <li class="nav__item nav-login" style="display: none;">
+          <a href="./login.html" class="nav__link">Login / Registro</a>
         </li>
       </ul>
     </nav>

@@ -15,12 +15,8 @@
   <body>
     <header class="header">
       <nav class="nav">
-        <a href="index.html" class="nav__logo">
-          <img
-            src="./img/logo-hoja.svg"
-            alt="EcoMuebles Logo"
-            class="nav__logo-icon"
-          />
+        <a href="./index.html" class="nav__logo">
+          <img src="./img/logo-hoja.svg" alt="EcoMuebles Logo" class="nav__logo-icon" />
           <span class="nav__logo-text">EcoMuebles</span>
         </a>
         <input type="checkbox" id="nav-toggle" class="nav__toggle" />
@@ -28,50 +24,41 @@
           <span></span>
         </label>
         <ul class="nav__menu">
-          <li class="nav__item">
-            <a href="../index.html" class="nav__link">
-              <img src="./img/logo-home.svg" alt="inicio" class="cart-icon cart-icon__active" /></a>
+          <li class="nav__item nav-home">
+            <a href="./index.html" class="nav__link">
+              <img src="./img/logo-home.svg" alt="inicio" class="cart-icon  cart-icon__active" />
+            </a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item nav-products">
             <a href="./html/products.html" class="nav__link">Productos</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item nav-wishlist" style="display: none;">
             <a href="./html/wishList.html" class="nav__link">Lista de Deseos</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item nav-cart" style="display: none;">
             <a href="./html/shooping-cart.html" class="nav__link cart-container">
-              <img
-                src="./img/logo-carrito-ok.png"
-                alt="Carrito"
-                class="cart-icon"
-              />
+              <img src="./img/logo-carrito-ok.png" alt="Carrito" class="cart-icon" />
               <span class="cart-counter" id="cart-counter"></span>
             </a>
           </li>
-          
-          <li class="nav__item">
+          <li class="nav__item nav-blog">
             <a href="./html/blog.html" class="nav__link">Blog</a>
           </li>
-
-          <li class="nav__item">
+          <li class="nav__item nav-contact">
             <a href="./html/contact.html" class="nav__link">Contacto</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item nav-profile" style="display: none;">
             <a href="./html/profile.html" class="nav__link">
-              <img
-                src="./img/logo-profile.png"
-                alt="profile"
-                class="profile-icon"
-            /></a>
+              <img src="./img/logo-profile.png" alt="profile" class="profile-icon" />
+            </a>
           </li>
-          <li class="nav__item">
-            <a href="./html/login.html" class="nav__link">
-              <img
-                src="./img/logo-cerrar.png"
-                alt="log-out"
-                class="log-out-icon"
-            />
-          </a>
+          <li class="nav__item nav-logout" style="display: none;">
+            <a href="./index.html" class="nav__link">
+              <img src="./img/logo-cerrar.png" alt="log-out" class="log-out-icon" />
+            </a>
+          </li>
+          <li class="nav__item nav-login" style="display: none;">
+            <a href="./html/login.html" class="nav__link">Login / Registro</a>
           </li>
         </ul>
       </nav>

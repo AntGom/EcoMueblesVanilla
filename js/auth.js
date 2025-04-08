@@ -157,7 +157,7 @@ const logout = () => {
   currentUser = null;
 
   // Redirigir a login
-  window.location.href = "login.html";
+  window.location.href = "../index.html";
 };
 
 // Carga el usuario actual del localStorage
@@ -173,41 +173,54 @@ function isLoggedIn() {
   return currentUser !== null && currentUser.isLoggedIn === true;
 }
 
-// Actualiza UI según estado de autenticación
+// Actualiza UI según autenticación
 function updateAuthUI() {
   const isUserLoggedIn = isLoggedIn();
 
-  // Mostrar/ocultar elementos según si hay un usuario logueado
-  document.querySelectorAll(".nav__item").forEach((item) => {
-    // Si usuario logueado
-    if (
-      item.querySelector(".profile-icon") ||
-      item.querySelector(".log-out-icon")
-    ) {
-      item.style.display = isUserLoggedIn ? "block" : "none";
-    }
+  const show = (selector) => {
+    const el = document.querySelector(selector);
+    if (el) el.style.display = "block";
+  };
 
-    // Si usuario NO logueado
-    if (
-      item.querySelector(".log-in-icon") ||
-      item.querySelector(".register-icon")
-    ) {
-      item.style.display = isUserLoggedIn ? "none" : "block";
-    }
-  });
+  const hide = (selector) => {
+    const el = document.querySelector(selector);
+    if (el) el.style.display = "none";
+  };
 
-  // Si estamos en profile y nadie logueado, redirigir a login
-  if (window.location.href.includes("profile.html") && !isUserLoggedIn) {
-    window.location.href = "login.html";
+  // Mostrar siempre
+  show(".nav-home");
+  show(".nav-products");
+  show(".nav-blog");
+  show(".nav-contact");
+
+  // Mostrar SI logueado
+  isUserLoggedIn ? show(".nav-wishlist") : hide(".nav-wishlist");
+  isUserLoggedIn ? show(".nav-cart") : hide(".nav-cart");
+  isUserLoggedIn ? show(".nav-profile") : hide(".nav-profile");
+  isUserLoggedIn ? show(".nav-logout") : hide(".nav-logout");
+
+  // Mostrar login si NO logueado
+  isUserLoggedIn ? hide(".nav-login") : show(".nav-login");
+
+  // Logout
+  const logoutIcon = document.querySelector(".log-out-icon");
+  if (logoutIcon) {
+    logoutIcon.parentElement.addEventListener("click", function (e) {
+      e.preventDefault();
+      logout(); // tu función de logout
+    });
   }
 
-  // Botón logout
-  document.querySelectorAll(".log-out-icon").forEach((icon) => {
-    icon.parentElement.addEventListener("click", function (e) {
-      e.preventDefault();
-      logout();
+  // Redirigir desde páginas protegidas si NO logueado
+  const protectedPages = ["profile.html", "wishList.html", "shooping-cart.html"];
+  if (!isUserLoggedIn) {
+    protectedPages.forEach(page => {
+      if (window.location.pathname.includes(page)) {
+        window.location.href = "login.html";
+      }
     });
-  });
+  }
 }
+
 
 export { login, register, logout, isLoggedIn, currentUser };

@@ -1,161 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito - EcoMuebles</title>
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/shooping-cart.css" />
-    <link rel="stylesheet" href="../css/mediaQueris.css" />
-    <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
-    <script  type="module" defer src="../js/cart.js"></script>
-  </head>
 
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="../index.html" class="nav__logo">
-          <img
-            src="../img/logo-hoja.svg"
-            alt="EcoMuebles Logo"
-            class="nav__logo-icon"
-          />
-          <span class="nav__logo-text">EcoMuebles</span>
-        </a>
-        <input type="checkbox" id="nav-toggle" class="nav__toggle" />
-        <label for="nav-toggle" class="nav__toggle-label">
-          <span></span>
-        </label>
-        <ul class="nav__menu">
-          <li class="nav__item">
-            <a href="../index.html" class="nav__link">
-              <img src="../img/logo-home.svg" alt="inicio" class="cart-icon" /></a>
-          </li>
-          <li class="nav__item">
-            <a href="./products.html" class="nav__link">Productos</a>
-          </li>
-          <li class="nav__item">
-            <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
-          </li>
-          <li class="nav__item">
-            <a href="./html/shooping-cart.html" class="nav__link cart-container">
-              <img
-                src="../img/logo-carrito-ok.png"
-                alt="Carrito"
-                class="cart-icon cart-icon__active"
-              />
-              <span class="cart-counter" id="cart-counter"></span>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="./blog.html" class="nav__link">Blog</a>
-          </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - EcoMuebles</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/shooping-cart.css" />
+  <link rel="stylesheet" href="../css/mediaQueris.css" />
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hoja.svg" />
+  <script type="module" defer src="../js/cart.js"></script>
+  <script type="module" defer src="../js/auth.js"></script>
+</head>
 
-          <li class="nav__item">
-            <a href="./contact.html" class="nav__link">Contacto</a>
-          </li>
-          <li class="nav__item">
-            <a href="./profile.html" class="nav__link">
-              <img
-                src="../img/logo-profile.png"
-                alt="profile"
-                class="profile-icon"
-            /></a>
-          </li>
-          <li class="nav__item">
-            <a href="./login.html" class="nav__link">
-              <img
-                src="../img/logo-cerrar.png"
-                alt="log-out"
-                class="log-out-icon"
-            /></a>
-          </li>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="../index.html" class="nav__logo">
+        <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="nav__logo-icon" />
+        <span class="nav__logo-text">EcoMuebles</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav__toggle" />
+      <label for="nav-toggle" class="nav__toggle-label">
+        <span></span>
+      </label>
+      <ul class="nav__menu">
+        <li class="nav__item nav-home">
+          <a href="../index.html" class="nav__link">
+            <img src="../img/logo-home.svg" alt="inicio" class="cart-icon" />
+          </a>
+        </li>
+        <li class="nav__item nav-products">
+          <a href="./products.html" class="nav__link">Productos</a>
+        </li>
+        <li class="nav__item nav-wishlist" style="display: none;">
+          <a href="./wishList.html" class="nav__link">Lista de Deseos</a>
+        </li>
+        <li class="nav__item nav-cart" style="display: none;">
+          <a href="../html/shooping-cart.html" class="nav__link cart-container  cart-icon__active">
+            <img src="../img/logo-carrito-ok.png" alt="Carrito" class="cart-icon" />
+            <span class="cart-counter" id="cart-counter"></span>
+          </a>
+        </li>
+        <li class="nav__item nav-blog">
+          <a href="./blog.html" class="nav__link">Blog</a>
+        </li>
+        <li class="nav__item nav-contact">
+          <a href="./contact.html" class="nav__link">Contacto</a>
+        </li>
+        <li class="nav__item nav-profile" style="display: none;">
+          <a href="./profile.html" class="nav__link">
+            <img src="../img/logo-profile.png" alt="profile" class="profile-icon" />
+          </a>
+        </li>
+        <li class="nav__item nav-logout" style="display: none;">
+          <a href="#" class="nav__link">
+            <img src="../img/logo-cerrar.png" alt="log-out" class="log-out-icon" />
+          </a>
+        </li>
+        <li class="nav__item nav-login" style="display: none;">
+          <a href="./login.html" class="nav__link">Login / Registro</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1 class="page-header__title">Tu Carrito</h1>
+      <p class="page-header__text">Revisa tu pedido</p>
+    </section>
+
+    <section class="cart">
+      <div class="cart__items">
+        <!-- El contenido del carrito se cargará dinámicamente desde JavaScript -->
+      </div>
+
+      <div class="cart__summary">
+        <h2 class="cart__summary-title">Resumen del Pedido</h2>
+        <div class="cart__summary-row">
+          <span>Subtotal</span>
+          <span class="subtotal">0€</span>
+        </div>
+        <div class="cart__summary-row">
+          <span>Envío</span>
+          <span class="shipping">Gratis</span>
+        </div>
+        <div class="cart__summary-row cart__summary-row--total">
+          <span>Total</span>
+          <span>0€</span>
+        </div>
+        <button class="button button--primary cart__checkout">
+          Realizar Pedido
+        </button>
+        <a href="products.html" class="button button--secondary cart__continue">Seguir comprando</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <img src="../img/logo-hoja.svg" alt="EcoMuebles Logo" class="footer__logo" />
+        <p class="footer__tagline">
+          Muebles sostenibles para un mañana mejor.
+        </p>
+      </div>
+
+      <div class="footer__links">
+        <h3 class="footer__title">Enlaces Rápidos</h3>
+        <ul class="footer__menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./products.html">Productos</a></li>
+          <li><a href="./contact.html">Contacto</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
         </ul>
-      </nav>
-    </header>
+      </div>
 
-    <main>
-      <section class="page-header">
-        <h1 class="page-header__title">Tu Carrito</h1>
-        <p class="page-header__text">Revisa tu pedido</p>
-      </section>
-
-      <section class="cart">
-        <div class="cart__items">
-          <!-- El contenido del carrito se cargará dinámicamente desde JavaScript -->
-        </div>
-
-        <div class="cart__summary">
-          <h2 class="cart__summary-title">Resumen del Pedido</h2>
-          <div class="cart__summary-row">
-            <span >Subtotal</span>
-            <span class="subtotal">0€</span>
-          </div>
-          <div class="cart__summary-row">
-            <span>Envío</span>
-            <span class="shipping">Gratis</span>
-          </div>
-          <div class="cart__summary-row cart__summary-row--total">
-            <span>Total</span>
-            <span>0€</span>
-          </div>
-          <button class="button button--primary cart__checkout">
-            Realizar Pedido
-          </button>
-          <a
-            href="products.html"
-            class="button button--secondary cart__continue"
-            >Seguir comprando</a
-          >
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer__content">
-        <div class="footer__brand">
-          <img
-            src="../img/logo-hoja.svg"
-            alt="EcoMuebles Logo"
-            class="footer__logo"
-          />
-          <p class="footer__tagline">
-            Muebles sostenibles para un mañana mejor.
-          </p>
-        </div>
-
-        <div class="footer__links">
-          <h3 class="footer__title">Enlaces Rápidos</h3>
-          <ul class="footer__menu">
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="./products.html">Productos</a></li>
-            <li><a href="./contact.html">Contacto</a></li>
-            <li><a href="./faq.html">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__social">
-          <h3 class="footer__title">Síguenos en RR.SS.</h3>
-          <div class="footer__social-icons">
-            <a href="#" aria-label="Facebook">
-              <img src="../img/logo-facebook.svg" alt="logo facebook" />
-            </a>
-            <a href="#" aria-label="X">
-              <img src="../img/logo-x.svg" alt="logo x" />
-            </a>
-            <a href="#" aria-label="Instagram">
-              <img src="../img/logo-instagram.svg" alt="logo instagram" />
-            </a>
-            <a href="#" aria-label="Pinterest">
-              <img src="../img/logo-pinterest.svg" alt="logo pinterest" />
-            </a>
-          </div>
+      <div class="footer__social">
+        <h3 class="footer__title">Síguenos en RR.SS.</h3>
+        <div class="footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <img src="../img/logo-facebook.svg" alt="logo facebook" />
+          </a>
+          <a href="#" aria-label="X">
+            <img src="../img/logo-x.svg" alt="logo x" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="../img/logo-instagram.svg" alt="logo instagram" />
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <img src="../img/logo-pinterest.svg" alt="logo pinterest" />
+          </a>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2025 Antonio Gómez. Desde Andalucía, con ❤.</p>
-      </div>
-    </footer>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Antonio Gómez. Desde Andalucía, con ❤.</p>
+    </div>
+  </footer>
 
-  </body>
+</body>
+
 </html>
