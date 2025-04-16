@@ -98,7 +98,7 @@ const clearCart = () => {
 };
 
 // Actualizar contador del carrito en navbar
-const updateCartCounter = () => {
+function updateCartCounter () {
   const cart = getCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   console.log("Total items en el carrito:", totalItems);

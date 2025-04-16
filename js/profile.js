@@ -2,29 +2,24 @@ import { isLoggedIn, currentUser } from "./auth.js";
 import { showNotification } from "./notifications.js";
 
 // Inicializar la página de perfil
-document.addEventListener("DOMContentLoaded", () => {
+
   // Comprobar si estamos en la página de perfil
-  const isProfilePage = document.querySelector(".profile-main");
-  if (!isProfilePage) return;
-
-  // Comprobar si hay un usuario logueado
-  if (!isLoggedIn()) {
-    window.location.href = "login.html";
-    return;
+  function initProfile() {
+    const isProfilePage = document.querySelector(".profile-main");
+    if (!isProfilePage) return;
+  
+    // Aquí puedes poner tu lógica
+    loadProfileData();
+    initializeProfileEditing();
+    loadOrderHistory();
   }
+  
+  initProfile(); // Llama a la función
+  
 
-  // Cargar datos del perfil
-  loadProfileData();
-
-  // Inicializar edición de campos
-  initializeProfileEditing();
-
-  // Cargar historial de pedidos
-  loadOrderHistory();
-});
 
 // Carga los datos del perfil del usuario
-const loadProfileData = () => {
+function loadProfileData () {
   // Para mockup, usamos datos del localStorage
 
   if (!currentUser) return;
@@ -48,7 +43,7 @@ const loadProfileData = () => {
 };
 
 // Inicia funcionalidad edición campos perfil
-const initializeProfileEditing = () => {
+function initializeProfileEditing () {
   const editButton = document.querySelector(".edit-pencil");
   if (!editButton) return;
 
@@ -113,7 +108,7 @@ const saveProfileChanges = () => {
 };
 
 // Carga el historial de pedidos del usuario
-const loadOrderHistory = () => {
+function loadOrderHistory () {
   const ordersList = document.querySelector(".orders-list");
   if (!ordersList) return;
 
