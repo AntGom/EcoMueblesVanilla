@@ -1,5 +1,6 @@
 import { showNotification } from "./app.js";
 
+// Observación: El manejo del estado del usuario podría beneficiarse de un patrón más robusto
 let currentUser = null;
 
 const initAuth = () => {
@@ -13,7 +14,7 @@ const initAuth = () => {
 };
 initAuth();
 
-// Formulario login
+// Observación: La validación de formularios podría ser más robusta y reutilizable
 function initLoginForm() {
   const loginForm = document.querySelector(".auth-form");
 
@@ -44,7 +45,7 @@ function initLoginForm() {
   });
 }
 
-// Formulario registro
+// Observación: La lógica de validación podría extraerse a funciones separadas
 function initRegisterForm() {
   const registerForm = document.querySelector(".auth-form");
 
@@ -94,7 +95,7 @@ function initRegisterForm() {
   });
 }
 
-// Iniciar sesión
+// Observación: La autenticación actual no es segura, debería implementarse con hash y tokens
 const login = (email, password) => {
   const users = JSON.parse(localStorage.getItem("ecomuebles_users") || "[]");
   const user = users.find((u) => u.email === email && u.password === password);
@@ -125,7 +126,7 @@ const login = (email, password) => {
   return false;
 };
 
-// Registra un nuevo usuario
+// Observación: El registro debería incluir validación de email y requisitos de contraseña
 const register = (name, email, password) => {
   const users = JSON.parse(localStorage.getItem("ecomuebles_users") || "[]");
 
@@ -151,7 +152,7 @@ const register = (name, email, password) => {
   return true;
 };
 
-// Cerrar sesión
+// Observación: El logout podría incluir limpieza de datos sensibles
 const logout = () => {
   localStorage.removeItem("ecomuebles_current_user");
   currentUser = null;
@@ -160,7 +161,7 @@ const logout = () => {
   window.location.href = "../index.html";
 };
 
-// Carga el usuario actual del localStorage
+// Observación: La carga del usuario podría incluir validación de sesión expirada
 function loadCurrentUser() {
   const storedUser = localStorage.getItem("ecomuebles_current_user");
   if (storedUser) {
@@ -173,7 +174,7 @@ function isLoggedIn() {
   return currentUser !== null && currentUser.isLoggedIn === true;
 }
 
-// Actualiza UI según autenticación
+// Observación: La actualización de UI podría beneficiarse de un sistema de eventos
 function updateAuthUI() {
   const isUserLoggedIn = isLoggedIn();
 

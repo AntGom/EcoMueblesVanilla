@@ -1,8 +1,10 @@
 import { showNotification } from "./notifications.js";
 import { updateCartCounter } from "./cart.js";
 
+// Observación: Sería mejor tener las URLs de la API en un archivo de configuración separado
 const API_URL = "https://furniture-api.fly.dev/v1/";
 
+// Observación: La función podría beneficiarse de un mejor manejo de errores y logging
 const getProducts = async (page = 1, limit = 50) => {
   try {
     const response = await fetch(
@@ -19,6 +21,7 @@ const getProducts = async (page = 1, limit = 50) => {
   }
 };
 
+// Observación: Esta función podría reutilizar lógica de getProducts para evitar duplicación
 const getProductBySku = async (sku) => {
   try {
     const response = await fetch(`${API_URL}products/${sku}`);
@@ -33,6 +36,7 @@ const getProductBySku = async (sku) => {
   }
 };
 
+// Observación: La función podría beneficiarse de un sistema de caché para mejorar el rendimiento
 const getFilteredProducts = async (filters) => {
   const { category, wood_type, finish, price } = filters;
 
@@ -56,6 +60,7 @@ const getFilteredProducts = async (filters) => {
   }
 };
 
+// Observación: Esta lógica podría moverse a un módulo separado de gestión del carrito
 const cartCounter = document.getElementById("cart-counter");
 if (cartCounter) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];

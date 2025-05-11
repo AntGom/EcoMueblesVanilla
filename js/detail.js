@@ -2,12 +2,14 @@ import { getProductBySku } from "./app.js";
 import { addToWishlist, isInWishlist, removeFromWishlist } from "./wishlist.js";
 import { showNotification } from "./notifications.js";
 
+// SUGERENCIA: La función getProductSkuFromUrl podría implementar validación de parámetros
 const getProductSkuFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("sku");
 };
 
 // Pinta detalles de producto
+// OBSERVACIÓN: Los mapas de traducción podrían moverse a un archivo de configuración separado
 const renderProductDetails = (product) => {
   if (!product) return;
 
@@ -31,6 +33,7 @@ const renderProductDetails = (product) => {
     natural: "natural",
   };
 
+  // SUGERENCIA: La lógica de renderizado podría beneficiarse de un template engine
   document.querySelector(".product-detail__title").textContent = product.name;
   document.querySelector(".product-detail__text").textContent =
     product.description;
@@ -52,6 +55,7 @@ const renderProductDetails = (product) => {
     ? finishMap[product.finish] || product.finish
     : null;
 
+  // OBSERVACIÓN: La construcción de features podría implementarse como un componente reutilizable
   const features = [
     woodType && `<li><strong>Tipo de madera:</strong> ${woodType}</li>`,
     finish && `<li><strong>Acabado:</strong> ${finish}</li>`,
@@ -71,6 +75,7 @@ const renderProductDetails = (product) => {
 };
 
 // Eventos de los botones de la página
+// SUGERENCIA: La función setupEventListeners podría implementar un patrón Observer
 const setupEventListeners = (product) => {
   if (!product) return;
 
@@ -111,6 +116,7 @@ const setupEventListeners = (product) => {
 };
 
 // Actualiza botón wishList
+// OBSERVACIÓN: La función updateWishlistButton podría beneficiarse de un sistema de estados
 const updateWishlistButton = (isActive, grayHeart, redHeart, textSpan) => {
   if (!grayHeart || !redHeart || !textSpan) return;
 
@@ -120,6 +126,7 @@ const updateWishlistButton = (isActive, grayHeart, redHeart, textSpan) => {
 };
 
 // Inicializa página de detalles
+// SUGERENCIA: La función initProductDetail podría implementar un patrón Factory
 const initProductDetail = async () => {
   if (!document.querySelector(".product-detail")) return;
 

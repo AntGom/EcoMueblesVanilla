@@ -2,6 +2,7 @@ import { showNotification } from "./app.js";
 import { addToCart } from "./cart.js";
 
 // Añade un producto a la lista
+// SUGERENCIA: La función addToWishlist podría implementar un sistema de eventos
 const addToWishlist = (id, name, price, image, sku) => {
   // Si ya está en wishlist, no hacer nada
   if (isInWishlist(id)) {
@@ -27,6 +28,7 @@ const addToWishlist = (id, name, price, image, sku) => {
 };
 
 //Elimina producto de la lista
+// OBSERVACIÓN: La función removeFromWishlist podría incluir confirmación del usuario
 const removeFromWishlist = (id) => {
   let wishlist = getWishlist();
 
@@ -49,22 +51,26 @@ const removeFromWishlist = (id) => {
 };
 
 // Comprueba si producto es en la lista
+// SUGERENCIA: La función isInWishlist podría beneficiarse de un sistema de caché
 const isInWishlist = (id) => {
   const wishlist = getWishlist();
   return wishlist.some((item) => item.id === id);
 };
 
 // Obtiene lista de localStorage
+// OBSERVACIÓN: La función getWishlist podría implementar un sistema de versionado
 const getWishlist = () => {
   return JSON.parse(localStorage.getItem("ecomuebles_wishlist") || "[]");
 };
 
 // Guarda lista en localStorage
+// SUGERENCIA: La función saveWishlist podría implementar un sistema de backup
 const saveWishlist = (wishlist) => {
   localStorage.setItem("ecomuebles_wishlist", JSON.stringify(wishlist));
 };
 
 // Muestra los productos de la lista
+// OBSERVACIÓN: La función displayWishlist podría separar la lógica de renderizado
 const displayWishlist = () => {
   const wishlistContainer = document.querySelector(".favorites__grid");
   if (!wishlistContainer) return;
@@ -105,6 +111,7 @@ const displayWishlist = () => {
     .join("");
 
   // Event listeners a botones eliminar
+  // SUGERENCIA: Los event listeners podrían manejarse de forma más declarativa
   document.querySelectorAll(".remove-wishlist-btn").forEach((button) => {
     button.addEventListener("click", function () {
       const id = this.getAttribute("data-id");
@@ -129,6 +136,7 @@ const displayWishlist = () => {
 };
 
 // Inicializar la página de wishlist
+// OBSERVACIÓN: La función initWishList podría implementar un patrón Factory
 const initWishList = () => {
   // Si estamos en la página de wishlist, mostrar productos
   if (document.querySelector(".favorites__grid")) {
