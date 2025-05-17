@@ -1,6 +1,6 @@
 import { showNotification } from "./app.js";
 
-// Añadir producto al carrito
+// SUGERENCIA: La función addToCart podría beneficiarse de un sistema de eventos para mejor desacoplamiento
 const addToCart = (id, name, price, image, sku, quantity = 1) => {
   let cart = getCart();
 
@@ -23,7 +23,7 @@ const addToCart = (id, name, price, image, sku, quantity = 1) => {
   updateCartCounter();
 };
 
-// Eliminar producto
+// OBSERVACIÓN: La función removeFromCart podría incluir validación de stock
 const removeFromCart = (id) => {
   let cart = getCart();
 
@@ -46,7 +46,7 @@ const removeFromCart = (id) => {
   }
 };
 
-// Actualizar cantidad de producto en carrito
+// SUGERENCIA: La función updateCartItemQuantity podría implementar un patrón Observer
 const updateCartItemQuantity = (id, quantity) => {
   let cart = getCart();
 
@@ -72,18 +72,18 @@ const updateCartItemQuantity = (id, quantity) => {
   }
 };
 
-// Obtener productos de localStorage
+// OBSERVACIÓN: El manejo del carrito en localStorage podría beneficiarse de un sistema de caché
 const getCart = () => {
   return JSON.parse(localStorage.getItem("ecomuebles_cart") || "[]");
 };
 
-// Guardar carrito en localStorage
+// SUGERENCIA: La función saveCart podría implementar un sistema de versionado
 const saveCart = (cart) => {
   console.log("Guardando carrito:", cart);
   localStorage.setItem("ecomuebles_cart", JSON.stringify(cart));
 };
 
-// Vaciar carrito
+// OBSERVACIÓN: La función clearCart podría incluir confirmación del usuario
 const clearCart = () => {
   localStorage.removeItem("ecomuebles_cart");
 
@@ -97,7 +97,7 @@ const clearCart = () => {
   showNotification("Carrito vaciado correctamente", "info");
 };
 
-// Actualizar contador del carrito en navbar
+// SUGERENCIA: La función updateCartCounter podría beneficiarse de un sistema de eventos
 function updateCartCounter () {
   const cart = getCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
@@ -110,7 +110,7 @@ function updateCartCounter () {
   }
 };
 
-// Mostrar productos del carrito en la página
+// OBSERVACIÓN: La función displayCart podría separar la lógica de renderizado
 const displayCart = () => {
   const cartItemsContainer = document.querySelector(".cart__items");
   if (!cartItemsContainer) return;
@@ -173,7 +173,7 @@ const displayCart = () => {
   updateCartSummary();
 };
 
-// Actualizar el resumen del carrito
+// SUGERENCIA: La función updateCartSummary podría implementar un patrón Strategy para los cálculos
 const updateCartSummary = () => {
   const summaryContainer = document.querySelector(".cart__summary");
   if (!summaryContainer) return;
@@ -213,7 +213,7 @@ const updateCartSummary = () => {
   }
 };
 
-// Guardar pedido en localStorage
+// OBSERVACIÓN: La función saveOrder podría implementar un sistema de persistencia más robusto
 const saveOrder = (cart) => {
   const orderDate = new Date().toLocaleString();
   // Función para asignar un estado aleatorio

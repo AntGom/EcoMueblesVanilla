@@ -1,14 +1,12 @@
+// SUGERENCIA: La función showNotification podría implementar un sistema de cola para mejor gestión
 const showNotification = (message, type = "info", duration = 3000) => {
-  // Verificar si hay notificación visible
   const existingNotifications = document.querySelectorAll(".notification");
-  const offset = existingNotifications.length * 60; // Espacio entre notificaciones
+  const offset = existingNotifications.length * 60;
 
-  // Crear notificación
   const notification = document.createElement("div");
   notification.className = `notification notification--${type}`;
   notification.style.bottom = `${20 + offset}px`;
 
-  // Contenido de la notificación
   notification.innerHTML = `
       <div class="notification__content">
         <p>${message}</p>
@@ -16,14 +14,12 @@ const showNotification = (message, type = "info", duration = 3000) => {
       </div>
     `;
 
-  // Añadir al cuerpo del documento
   document.body.appendChild(notification);
 
-  // Notificación con animación
   notification.style.opacity = "1";
   notification.style.transform = "translateY(0)";
 
-  // Cierre
+  // OBSERVACIÓN: La función closeNotification podría beneficiarse de un sistema de eventos
   const closeButton = notification.querySelector(".notification__close");
   const closeNotification = () => {
     notification.style.opacity = "0";
@@ -37,13 +33,12 @@ const showNotification = (message, type = "info", duration = 3000) => {
 
   closeButton.addEventListener("click", closeNotification);
 
-  // Auto-cierre
   if (duration > 0) {
     setTimeout(closeNotification, duration);
   }
 };
 
-// Estilos para notificaciones
+// SUGERENCIA: Los estilos podrían moverse a un archivo CSS separado
 const addNotificationStyles = () => {
   if (document.getElementById("notification-styles")) return;
 
@@ -106,6 +101,7 @@ const addNotificationStyles = () => {
   document.head.appendChild(style);
 };
 
+// OBSERVACIÓN: La inicialización de estilos podría moverse a un módulo de configuración
 addNotificationStyles();
 
 export { showNotification };

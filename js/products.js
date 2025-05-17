@@ -2,12 +2,14 @@ import { getProducts, getFilteredProducts } from "./app.js";
 import { showNotification } from "./notifications.js";
 
 // Variables para paginación
+// OBSERVACIÓN: Las variables de paginación podrían estar en un objeto de configuración
 let currentPage = 1;
 const itemsPerPage = 12;
 let totalPages = 1;
 let filteredProducts = [];
 let allProducts = [];
 
+// SUGERENCIA: La función renderProducts podría beneficiarse de un template engine o componentes reutilizables
 const renderProducts = (products, container) => {
   if (!products || products.length === 0) {
     container.innerHTML =
@@ -47,6 +49,7 @@ const renderProducts = (products, container) => {
     .join("");
 };
 
+// OBSERVACIÓN: La paginación podría implementarse como un componente reutilizable
 const renderPagination = (container) => {
   // No paginación si solo 1 página
   if (totalPages <= 1) {
@@ -92,6 +95,7 @@ const renderPagination = (container) => {
   container.innerHTML = paginationHTML;
 
   // Listeners para botones de paginación
+  // SUGERENCIA: Los event listeners podrían manejarse de forma más declarativa
   container.querySelector("#prev-page").addEventListener("click", () => {
     if (currentPage > 1) {
       changePage(currentPage - 1);
@@ -111,6 +115,7 @@ const renderPagination = (container) => {
   });
 };
 
+// OBSERVACIÓN: La función changePage podría beneficiarse de un sistema de eventos
 const changePage = (newPage) => {
   currentPage = newPage;
 
@@ -132,6 +137,7 @@ const changePage = (newPage) => {
     .scrollIntoView({ behavior: "smooth" });
 };
 
+// SUGERENCIA: Los filtros podrían implementarse como un módulo separado
 const initializeFilters = (products, container) => {
   const filterButton = document.querySelector(".button.button--primary");
   const resetButton = document.getElementById("reset-filters");
@@ -180,6 +186,7 @@ const initializeFilters = (products, container) => {
     }
   };
 
+  // OBSERVACIÓN: La función resetFilters podría reutilizar lógica de applyFilters
   const resetFilters = () => {
     document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       checkbox.checked = false;
@@ -220,6 +227,7 @@ const initializeFilters = (products, container) => {
   });
 };
 
+// SUGERENCIA: La función sortProducts podría beneficiarse de un patrón Strategy
 const sortProducts = (products, sortOption) => {
   switch (sortOption) {
     case "price_asc":
@@ -243,6 +251,7 @@ const sortProducts = (products, sortOption) => {
   }
 };
 
+// OBSERVACIÓN: Esta función podría ser más genérica y reutilizable
 const getSelectedCheckboxValues = (name) => {
   return Array.from(
     document.querySelectorAll(`input[name="${name}"]:checked`)

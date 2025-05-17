@@ -2,6 +2,7 @@ import { isLoggedIn, currentUser } from "./auth.js";
 import { showNotification } from "./notifications.js";
 
 // Inicializar la página de perfil
+// SUGERENCIA: La función initProfile podría implementar un patrón Factory
 
   // Comprobar si estamos en la página de perfil
   function initProfile() {
@@ -19,6 +20,7 @@ import { showNotification } from "./notifications.js";
 
 
 // Carga los datos del perfil del usuario
+// OBSERVACIÓN: La función loadProfileData podría beneficiarse de un sistema de caché
 function loadProfileData () {
   // Para mockup, usamos datos del localStorage
 
@@ -43,6 +45,7 @@ function loadProfileData () {
 };
 
 // Inicia funcionalidad edición campos perfil
+// SUGERENCIA: La función initializeProfileEditing podría implementar un patrón Observer
 function initializeProfileEditing () {
   const editButton = document.querySelector(".edit-pencil");
   if (!editButton) return;
@@ -77,6 +80,7 @@ function initializeProfileEditing () {
 };
 
 // Guarda cambios
+// OBSERVACIÓN: La función saveProfileChanges podría implementar validación de datos
 const saveProfileChanges = () => {
   const nameInput = document.querySelector("#nombre-apellidos");
   const phoneInput = document.querySelector("#telefono");
@@ -108,6 +112,7 @@ const saveProfileChanges = () => {
 };
 
 // Carga el historial de pedidos del usuario
+// SUGERENCIA: La función loadOrderHistory podría implementar un sistema de paginación
 function loadOrderHistory () {
   const ordersList = document.querySelector(".orders-list");
   if (!ordersList) return;
@@ -124,6 +129,7 @@ function loadOrderHistory () {
     return;
   }
 
+  // OBSERVACIÓN: La función getStatusClass podría moverse a un módulo de utilidades
   const getStatusClass = (status) => {
     switch (status) {
       case "Entregado":
@@ -183,6 +189,7 @@ function loadOrderHistory () {
     })
     .join("");
 
+  // SUGERENCIA: Los event listeners podrían manejarse de forma más declarativa
   document.querySelectorAll(".order-card .order").forEach((button) => {
     button.addEventListener("click", function () {
       const orderId = this.getAttribute("data-id");
